@@ -1,0 +1,35 @@
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Season</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let champion of champions">
+        <td>{{champion.DriverStandings[0].Driver.givenName}} {{champion.DriverStandings[0].Driver.familyName}}</td>
+        <td>{{champion.season}}</td>
+        <!-- <td>
+          <button class="btn btn-primary" (click)="showRaceWinners(champion.season)">Show Race Winners</button>
+        </td> -->
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table mt-3" *ngIf="raceWinners">
+    <thead>
+      <tr>
+        <th>Race Name</th>
+        <th>Winner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let race of raceWinners">
+        <td>{{race.raceName}}</td>
+        <td>{{race.Results[0].Driver.givenName}} {{race.Results[0].Driver.familyName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
